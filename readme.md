@@ -34,3 +34,13 @@ QMK is developed and maintained by Jack Humbert of OLKB with contributions from 
 ## Official Website
 
 [qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+
+## Denys' Workflow
+
+1. Open GUI Configurator
+2. Fetch the json from it `./keyboards/lily58/keymaps/denyago`
+3. Apply it `cp /tmp/lily58_rev1_denyago.json keyboards/lily58/keymaps/denyago/layout.json`
+4. Convert to C `qmk json2c keyboards/lily58/keymaps/denyago/layout.json > keyboards/lily58/keymaps/denyago/keymap.c`
+5. Complile `qmk compile -kb lily58/rev1 -km denyago -e CONVERT_TO=rp2040_ce`
+6. Tap the reset button two times and `cp lily58_rev1_denyago_rp2040_ce.uf2 /Volumes/RPI-RP2/`
+7. ... for the both halves
